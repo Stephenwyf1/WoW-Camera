@@ -1,0 +1,2 @@
+com.coloros.ocs.base
+string app_name

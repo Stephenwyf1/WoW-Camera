@@ -1,0 +1,4 @@
+include ':CVUnit-release'
+include ':com.coloros.ocs.base-release-1.0.4-SNAPSHOT'
+include ':app'
+rootProject.name = "WowCamera"

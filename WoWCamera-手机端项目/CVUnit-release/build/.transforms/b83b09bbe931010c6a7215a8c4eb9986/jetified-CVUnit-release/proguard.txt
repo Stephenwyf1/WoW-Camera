@@ -1,0 +1,144 @@
+# Add project specific ProGuard rules here.
+# You can control the set of applied configuration files using the
+# proguardFiles setting in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+#-------------------- basic begin ---------------------------------------
+-optimizationpasses 5
+-allowaccessmodification
+-dontusemixedcaseclassnames
+-keepattributes SourceFile,LineNumberTable
+-dontskipnonpubliclibraryclasses
+-dontskipnonpubliclibraryclassmembers
+-dontpreverify
+-verbose
+-ignorewarnings
+-keepattributes InnerClasses
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+#-dontwarn android.support.v4.**
+-dontwarn android.annotation
+-dontwarn org.apache.commons.codec.**
+
+# SourceFile
+-keepattributes LineNumberTable
+-keepattributes *Annotation*,InnerClasses
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes EnclosingMethod
+-keepparameternames
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keepclassmembers class * {
+   public <init>(org.json.JSONObject);
+}
+
+-keepclassmembers class * implements java.io.Serializable {
+    static final long serialVersionUID;
+    private static final java.io.ObjectStreamField[] serialPersistentFields;
+    private void writeObject(java.io.ObjectOutputStream);
+    private void readObject(java.io.ObjectInputStream);
+    java.lang.Object writeReplace();
+    java.lang.Object readResolve();
+}
+
+-keepclassmembers class * {
+    void *(**On*Event);
+}
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keep public class * extends android.view.View{
+    *** get*();
+    void set*(***);
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keep class **.R$* { *; }
+
+-keep class * extends org.apache.commons.codec.** { *; }
+-keep class org.apache.commons.codec.**{*;}
+
+#-------------------- basic end ---------------------------------------
+
+#-------------------- android begin -----------------------------------
+-keep class com.google.android.material.** {*;}
+-keep class androidx.** {*;}
+-keep public class * extends androidx.**
+-keep interface androidx.** {*;}
+-dontwarn com.google.android.material.**
+-dontnote com.google.android.material.**
+-dontwarn androidx.**
+#-------------------- androidx end -------------------------------------
+
+#-------------------- aidl --------------------------------------------
+-keep class com.aiunit.vision.IVisionService {*;}
+
+-keep class com.aiunit.vision.IVisionCallback {*;}
+
+#-------------------- aidl end ----------------------------------------
+
+-keep class com.coloros.ocs.ai.cv.CVUnitClient {*;}
+-keep class com.coloros.ocs.ai.cv.CVUnit {*;}
+-keep class com.aiunit.vision.common.FrameInputSlot {*;}
+-keep class com.aiunit.vision.common.FrameOutputSlot {*;}
+-keep class com.aiunit.vision.common.ConnectionCallback {*;}
+-keep class com.aiunit.core.FrameData
+-keep class com.aiunit.vision.face.FaceInputSlot {public *;}
+-keep class com.aiunit.vision.face.FaceOutputSlot {public *;}
+-keep class com.aiunit.vision.face.FaceCompareInputSlot {public *;}
+-keep class com.aiunit.vision.face.FaceCompareOutputSlot {public *;}
+-keep class com.aiunit.vision.gesture.HandInputSlot {public *;}
+-keep class com.aiunit.vision.gesture.HandOutputSlot {public *;}
+-keep class com.aiunit.vision.ocr.OCRInputSlot {public *;}
+-keep class com.aiunit.vision.ocr.OCROutputSlot {public *;}
+-keep class com.aiunit.vision.picture.AestheticScoreOutputSlot {public *;}
+-keep class com.aiunit.vision.picture.PictureScoreOutputSlot {public *;}
+-keep class com.aiunit.vision.picture.SkyReplaceInputSlot {public *;}
+-keep class com.aiunit.vision.utils.face.* {*;}
+-keep class com.aiunit.vision.utils.gesture.* {*;}
+-keep class com.aiunit.vision.utils.image.* {*;}
+-keep class com.aiunit.vision.utils.ocr.* {*;}
+-keep class com.aiunit.vision.utils.common.CVLog { public *;}
+-keep class com.aiunit.common.protocol.** {public *;}

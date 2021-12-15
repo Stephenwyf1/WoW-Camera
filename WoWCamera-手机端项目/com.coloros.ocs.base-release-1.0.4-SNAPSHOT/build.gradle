@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('com.coloros.ocs.base-release-1.0.4-SNAPSHOT.aar'))

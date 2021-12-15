@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/id_loading_and_retry"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/gray_700"
+        android:layout_margin="16dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="正在加载中..."
+        android:id="@+id/words"
+        android:textSize="16sp"
+        android:layout_marginLeft="10dp"/>
+
+</LinearLayout>

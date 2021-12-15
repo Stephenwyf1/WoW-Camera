@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/popwindow_background3"
+    android:paddingBottom="15dp"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="13dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="20dp"
+        android:outlineSpotShadowColor="@color/gray_550"
+        app:cardCornerRadius="15dp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/twoButton"
+            android:outlineSpotShadowColor="@color/gray_550"
+            android:outlineAmbientShadowColor="@color/gray_550"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:id="@+id/folder_delete">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="2dp"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/folder_delete_iv"
+                        android:src="@drawable/delete"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/folder_delete_tv"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:text="删除"
+                        android:gravity="center"
+                        android:textSize="9sp"
+                        android:id="@+id/folder_delete_tv"
+                        app:layout_constraintTop_toBottomOf="@id/folder_delete_iv"
+                        app:layout_constraintLeft_toLeftOf="@id/folder_delete_iv"
+                        app:layout_constraintRight_toRightOf="@id/folder_delete_iv"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+
+                android:id="@+id/folder_rename">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="2dp"
+                        android:scaleType="centerCrop"
+                        android:id="@+id/folder_rename_iv"
+                        android:src="@drawable/rename"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/folder_rename_tv"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="15dp"
+                        android:id="@+id/folder_rename_tv"
+                        android:text="重命名"
+                        android:textSize="9sp"
+                        app:layout_constraintTop_toBottomOf="@id/folder_rename_iv"
+                        app:layout_constraintLeft_toLeftOf="@id/folder_rename_iv"
+                        app:layout_constraintRight_toRightOf="@id/folder_rename_iv"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

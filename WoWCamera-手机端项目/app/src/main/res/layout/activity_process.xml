@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/process_layout_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#212121"
+    tools:context=".ProcessActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:background="@color/black"
+        android:id="@+id/top_layout">
+        <ImageView
+            android:id="@+id/back_ib"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:src="@drawable/ic_save"
+            android:id="@+id/save"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:text="保存"
+            android:textColor="@color/selected_white"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/pointShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分数"
+            android:textColor="@color/selected_white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageShow"
+        android:layout_width="0dp"
+        app:layout_constraintWidth_percent="0.9"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        app:layout_constraintDimensionRatio="3:4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_layout"
+        app:layout_constraintBottom_toTopOf="@id/item_layout" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:tabTextAppearance="@style/process_tab_text"
+        android:layout_marginBottom="5dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:tabIndicatorColor="@color/selected_white"
+        app:tabIndicatorFullWidth="false"
+        app:tabSelectedTextColor="@color/selected_white"
+        app:tabTextColor="@color/unselected_gray">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/ai_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/ai_selector"
+            android:text="AI增强" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/online_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/online_selector"
+            android:text="云端增强" />
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/user_config_icon"
+            android:text="个性配置" />
+        <com.google.android.material.tabs.TabItem
+
+            android:id="@+id/undo_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:icon="@drawable/undo_selector"
+            android:text="撤销" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <FrameLayout
+        android:paddingVertical="8dp"
+        android:id="@+id/item_layout"
+        app:layout_constraintBottom_toTopOf="@id/tabLayout"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="76dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ai_layout"
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tabLayout">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/sky_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#1565c0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/style_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/sky_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/sky_card"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="魔法换天"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/sky_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/style_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#f57c00"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/sky_card"
+                app:layout_constraintRight_toRightOf="@id/paiting_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/style_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/style_golden"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="风格转换"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/style_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/paiting_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#C8BA77"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/style_card"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/paiting_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/lotus"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="AI造画"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/paiting_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/online_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tabLayout">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/noise_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#795548"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/enhance_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/noise_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/noise_new"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="智能去噪"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/noise_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/enhance_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#2e7d32"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/noise_card"
+                app:layout_constraintRight_toLeftOf="@id/poem_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/fair_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/person_beauty"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="人像增强"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/fair_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/poem_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#455a64"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/enhance_card"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/poem_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/poem_new"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="AI诗人"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/poem_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tools_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tabLayout">
+
+            <ImageView
+                android:id="@+id/undo_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/undo_1"
+                app:layout_constraintBottom_toTopOf="@id/undo_tv"
+                app:layout_constraintLeft_toLeftOf="@id/undo_tv"
+                app:layout_constraintRight_toRightOf="@+id/undo_tv" />
+
+            <TextView
+                android:id="@+id/undo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="撤销"
+                android:textColor="@color/selected_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/redo_tv" />
+
+            <ImageView
+                android:id="@+id/redo_iv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/redo_1"
+                app:layout_constraintBottom_toTopOf="@id/redo_tv"
+                app:layout_constraintLeft_toLeftOf="@id/redo_tv"
+                app:layout_constraintRight_toRightOf="@+id/redo_tv" />
+
+            <TextView
+                android:id="@+id/redo_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="重做"
+                android:textColor="@color/selected_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/undo_tv"
+                app:layout_constraintRight_toRightOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/config_layout"
+            app:layout_constraintBottom_toTopOf="@id/tabLayout"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/select_config_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#6281c2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/save_config_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/config_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="centerCrop"
+                        android:background="@color/white"
+                        android:src="@drawable/config_select2"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:id="@+id/config_tv"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="选择配置"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/config_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/save_config_card"
+                android:layout_width="80dp"
+                android:layout_height="60dp"
+                app:cardBackgroundColor="#3678bf"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/select_config_card"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/save_Config_iv"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/config_save"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ems="1"
+                        android:id="@+id/save_tv"
+                        android:lineSpacingExtra="-2dp"
+                        android:text="保存配置"
+                        android:textColor="@color/selected_white"
+                        android:textSize="12dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/save_Config_iv"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/paiting_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/item_layout">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/patternGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_bjs"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/pattern_bjs_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/bjs"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_bjs_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="毕加索"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_bjs_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_bjs2"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_bjs2_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/bjs2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_bjs2_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="格尔尼卡"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_bjs2_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_cxp2"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_cxp2_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/cxp2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_cxp2_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="抽象派"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_cxp2_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_dfq"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_dfq_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/dfq"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_dfq_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="达芬奇"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_dfq_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_fg_xq"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_fg_xq_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/fg_xk"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_fg_xq_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="梵高"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_fg_xq_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_fsh"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_fsh_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/fsh"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_fsh_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="浮世绘"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_fsh_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_mnls"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_mnls_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/mnls"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_mnls_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="蒙娜丽莎"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_mnls_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_npl"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_npl_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/npl"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_npl_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="拿破仑"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_npl_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_xhc"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_xhc_iv"
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/xhc"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_xhc_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="新海诚"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/pattern_xhc_iv"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    android:background="@color/white" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="62dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/recycler_view"
+                    android:orientation="horizontal">
+
+                </androidx.recyclerview.widget.RecyclerView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/pattern_add"
+                    android:layout_width="60dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/pattern_add_iv"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_pattern_add"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/pattern_add_tv"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/pattern_add_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="添加滤镜"
+                            android:textSize="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:textStyle="bold"
+                            android:letterSpacing="0.1"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            <item>
+                <shape>
+                    <size android:width="50dp" android:height="50dp"/>
+                    <solid android:color="#424242"/>
+                    <corners android:radius="30dp" /> <!-- android:radius 弧形的半径 -->
+                </shape>
+            </item>
+            <item android:width="30dp" android:height="30dp" android:drawable="@drawable/ic_human" android:gravity="center" />
+        </layer-list>
+    </item>
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape>
+                    <size android:width="50dp" android:height="50dp"/>
+                    <solid android:color="#424242"/>
+                    <corners android:radius="30dp" /> <!-- android:radius 弧形的半径 -->
+                    <stroke  android:width="3dp" android:color="@color/black" />
+                </shape>
+            </item>
+            <item android:width="30dp" android:height="30dp" android:drawable="@drawable/ic_human" android:gravity="center" />
+        </layer-list>
+    </item>
+</selector>
